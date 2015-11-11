@@ -88,7 +88,7 @@ class ReviewMe {
         guard ++self.attempts > self.minIgnore else { return false }
         
         // compare a random number with our chance of a hit
-        let rand = Int(arc4random()) % self.chance
+        let rand = Int(arc4random_uniform(UInt32(self.chance)))
         guard rand % self.chance == 0 else { return false }
         
         let alert = alertController()
